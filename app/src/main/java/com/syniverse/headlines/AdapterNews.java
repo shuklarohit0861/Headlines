@@ -30,6 +30,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_news,parent,false);
         return new ViewHolder(itemView);
     }
@@ -59,4 +60,6 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
             ButterKnife.bind(this,itemView);
         }
     }
+
+
 }

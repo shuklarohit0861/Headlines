@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.syniverse.headlines.syncadapter.SyncUtils;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -72,7 +74,7 @@ public class NewsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
+        SyncUtils.CreateSyncAccount(context);
     }
 
     @Override
