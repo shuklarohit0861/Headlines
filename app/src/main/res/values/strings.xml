@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Headlines</string>
+
+    <string name="provider" translatable="false">"com.syniverse.headlines"</string>
+    <string name="content_provider_label" translatable="false">HeadlinesContentProvider</string>
+    <string name="account_type" translatable="false">com.syniverse.headlines.account</string>
+</resources>
