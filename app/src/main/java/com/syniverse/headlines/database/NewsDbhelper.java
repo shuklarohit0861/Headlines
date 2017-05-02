@@ -15,7 +15,7 @@ public class NewsDbhelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "headlines.db";
 
-    private static final int DATA_BASE_VERSION = 1;
+    private static final int DATA_BASE_VERSION = 2;
 
 
     public NewsDbhelper(Context context) {
@@ -27,7 +27,7 @@ public class NewsDbhelper extends SQLiteOpenHelper {
 
         final String CREATE_TABLE_ARTICLES = " CREATE TABLE " + NewsContract.Article.TABLE_NAME +
                 " ( " + NewsContract.Article.COLUMN_ID + " TEXT PRIMARY KEY, "
-                + NewsContract.Article.COLUMN_AUTHOR + "TEXT NOT NULL, "
+                + NewsContract.Article.COLUMN_AUTHOR + " TEXT NOT NULL, "
                 + NewsContract.Article.COLUMN_TITLE + " TEXT NOT NULL, "
                 + NewsContract.Article.COLUMN_DESCRIPTION + " TEXT NOT NULL, "
                 + NewsContract.Article.COLUMN_URL + " TEXT NOT NULL, "
@@ -39,7 +39,7 @@ public class NewsDbhelper extends SQLiteOpenHelper {
 
         final String CREATE_TABLE_CATEGORY = "CREATE TABLE " + NewsContract.Category.TABLE_NAME
                 + " ( "
-                +NewsContract.Category.COLUMN_ID +" TEXT NOT NULL, "
+                + NewsContract.Category.COLUMN_ID + " TEXT PRIMARY KEY, "
                 + NewsContract.Category.COLUMN_CATEGORY + " TEXT NOT NULL, "
                 + NewsContract.Category.COLUMN_ARTICLE_ID + " TEXT NOT NULL, "
                 + NewsContract.Category.COLUMN_SOURCE_NAME + " TEXT NOT NULL, "

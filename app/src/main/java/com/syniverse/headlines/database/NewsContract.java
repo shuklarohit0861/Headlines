@@ -25,7 +25,7 @@ public class NewsContract {
 
         public static final String CONTENT_TYPE = ContentResolver.CURSOR_DIR_BASE_TYPE +"/"+AUTHORITY + "/" + PATH_ARTICLE;
 
-        public static final String CONTENT_TYPE_iTEM = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/"+AUTHORITY + "/"+PATH_ARTICLE;
+        public static final String CONTENT_TYPE_ITEM = ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + AUTHORITY + "/" + PATH_ARTICLE;
 
         public static final String TABLE_NAME = "article";
 

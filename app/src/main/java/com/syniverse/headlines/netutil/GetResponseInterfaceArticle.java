@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface GetResponseInterfaceArticle {
 
-    @GET
+    @GET("articles")
     Call<GetNews> getNews(@Query("source") String source,
                           @Query("sortBY") String sortBy,
                           @Query("apiKey") String apiKey);

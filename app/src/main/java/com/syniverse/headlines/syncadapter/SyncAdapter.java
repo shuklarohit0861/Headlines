@@ -8,6 +8,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SyncResult;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.syniverse.headlines.database.NewsContract;
 import com.syniverse.headlines.netutil.ArticlesNews;
@@ -53,6 +54,12 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         callArticles.enqueue(new Callback<GetNews>() {
             @Override
             public void onResponse(Call<GetNews> call, Response<GetNews> response) {
+
+                GetNews getNews = response.body();
+
+                String status = getNews.getStatus();
+
+                Log.d("Status", status);
 
                 List<ArticlesNews> articlesNewses = response.body().getArticles();
 

@@ -10,6 +10,6 @@ import retrofit2.http.Query;
 
 public interface GetResponseInterfaceCategory {
 
-    @GET
+    @GET("sources")
     Call<CategoryNews> getCategory(@Query("category") String category);
 }

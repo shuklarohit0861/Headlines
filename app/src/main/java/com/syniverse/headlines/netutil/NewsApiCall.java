@@ -11,17 +11,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class NewsApiCall {
-    public static final String BASE_URL_ARTICLE = "https://newsapi.org/v1/articles";
+    public static final String BASE_URL_ARTICLE = "https://newsapi.org/v1/";
 
-    public static final String BASE_URL_CATEGORY = "https://newsapi.org/v1/sources";
-
-    private static Retrofit retrofitArticle = null;
-
-    private static Retrofit retrofitCategory = null;
-
+    public static final String BASE_URL_CATEGORY = "https://newsapi.org/v1/";
     static Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
             .create();
+    private static Retrofit retrofitArticle = null;
+    private static Retrofit retrofitCategory = null;
 
     public static Retrofit getRetrofitArticle(){
         if(retrofitArticle == null){

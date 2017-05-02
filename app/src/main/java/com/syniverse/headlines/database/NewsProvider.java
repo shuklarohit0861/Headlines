@@ -17,11 +17,13 @@ import android.support.annotation.Nullable;
 public class NewsProvider extends ContentProvider {
 
 
-    private static final UriMatcher sUriMatcher = buildUriMatcher();
     private static final int ARTICLES = 100 ;
     private static final int CATEGORY = 200;
     private static final int ARTICLES_WITH_ID = 300;
     private static final int CATEGORY_WITH_ID =400;
+    private static final UriMatcher sUriMatcher = buildUriMatcher();
+    private static final SQLiteQueryBuilder mSQLiteQueryBuilder = new SQLiteQueryBuilder();
+    private NewsDbhelper mDbHelper;
 
     private static UriMatcher buildUriMatcher() {
 
@@ -36,9 +38,6 @@ public class NewsProvider extends ContentProvider {
         return uriMatcher;
     }
 
-    private NewsDbhelper mDbHelper;
-
-    private static final SQLiteQueryBuilder mSQLiteQueryBuilder = new SQLiteQueryBuilder();
     @Override
     public boolean onCreate() {
         mDbHelper = new NewsDbhelper(getContext());
@@ -205,7 +204,7 @@ public class NewsProvider extends ContentProvider {
         final SQLiteDatabase db = mDbHelper.getWritableDatabase();
         final int match = sUriMatcher.match(uri);
 
-        String rawQuery = "DELETE * FROM " + NewsContract.Article.TABLE_NAME ;
+        String rawQuery = "DELETE  FROM " + NewsContract.Article.TABLE_NAME;
 
         Cursor cursor;
 

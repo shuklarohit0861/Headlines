@@ -26,6 +26,7 @@
         <provider
             android:name=".database.NewsProvider"
             android:authorities="@string/provider"
+            android:exported="true"
             android:label="@string/content_provider_label"
             android:syncable="true"
             />
@@ -43,11 +44,11 @@
         <service android:name=".account.AccountService" >
             <!-- Required filter used by the system to launch our account service. -->
             <intent-filter>
-                <action android:name="android.accounts.AbstractAccountAuthenticator" />
+                <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
             <!-- This points to an XML file which describes our account service. -->
             <meta-data
-                android:name="android.accounts.AbstractAccountAuthenticator"
+                android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator"/>
             </service>
 
@@ -57,7 +58,8 @@
             <intent-filter>
                 <action android:name="android.content.SyncAdapter"/>
             </intent-filter>
-            <meta-data android:name="android.content.AbstractThreadedSyncAdapter"
+            <meta-data
+                android:name="android.content.SyncAdapter"
                 android:resource="@xml/syncadapter"/>
         </service>
     </application>
