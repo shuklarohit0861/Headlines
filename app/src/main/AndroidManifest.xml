@@ -24,10 +24,10 @@
 
         <!-- Content provider to store data -->
         <provider
-            android:authorities="@string/provider"
             android:name=".database.NewsProvider"
-            android:syncable="true"
+            android:authorities="@string/provider"
             android:label="@string/content_provider_label"
+            android:syncable="true"
             />
 
         <activity android:name=".Headlines">
@@ -43,7 +43,7 @@
         <service android:name=".account.AccountService" >
             <!-- Required filter used by the system to launch our account service. -->
             <intent-filter>
-                <action android:name="android.accounts.AccountAuthenticator"/>
+                <action android:name="android.accounts.AbstractAccountAuthenticator" />
             </intent-filter>
             <!-- This points to an XML file which describes our account service. -->
             <meta-data
