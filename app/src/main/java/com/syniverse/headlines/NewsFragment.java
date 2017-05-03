@@ -34,15 +34,6 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
         // Required empty public constructor
     }
 
-
-    public static NewsFragment newInstance(String param1, String param2) {
-        NewsFragment fragment = new NewsFragment();
-        Bundle args = new Bundle();
-
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

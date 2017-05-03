@@ -63,7 +63,16 @@
 
         <activity
             android:name=".ListOfSource"
-            android:theme="@style/ListSourceTheme"></activity>
+            android:theme="@style/ListSourceTheme" />
+        <activity
+            android:name=".CategorySelectionActivity"
+            android:label="@string/title_activity_category_selection"
+            android:parentActivityName=".Headlines"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syniverse.headlines.Headlines" />
+        </activity>
     </application>
 
 </manifest>

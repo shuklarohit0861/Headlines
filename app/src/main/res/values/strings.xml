@@ -4,4 +4,6 @@
     <string name="provider" translatable="false">"com.syniverse.headlines"</string>
     <string name="content_provider_label" translatable="false">HeadlinesContentProvider</string>
     <string name="account_type" translatable="false">com.syniverse.headlines.account</string>
+    <string name="title_activity_category_selection">CategorySelectionActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

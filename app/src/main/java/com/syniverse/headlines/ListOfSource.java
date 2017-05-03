@@ -56,7 +56,7 @@ public class ListOfSource extends AppCompatActivity implements LoaderManager.Loa
         }
 
         // categoryString = "entertainment";
-        new UtilsNetwork().grabCategory(categoryString, getApplicationContext());
+        new UtilsNetwork().grabCategory(null, getApplicationContext());
 
 
         recyclerViewSources.setAdapter(mAdapterSource);

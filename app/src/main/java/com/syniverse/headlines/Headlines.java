@@ -57,13 +57,8 @@ public class Headlines extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         newsFragment = new NewsFragment();
         categoryFragment = new CategoryFragment();
-
         viewPagerAdapter.addFragment(newsFragment,"Latest");
         viewPagerAdapter.addFragment(categoryFragment,"Category");
-
         viewPager.setAdapter(viewPagerAdapter);
-
-
-
     }
 }
