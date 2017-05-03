@@ -3,16 +3,15 @@
     package="com.syniverse.headlines">
 
     <!-- permission -->
-    <!-- Required for fetching News Data-->
+    <!-- Required for fetching News Data -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!-- Required to register a SyncStatusObserver -->
-    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
     <!-- Required to enable our SyncAdapter after it's created. -->
-    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <!-- Required because we're manually creating a new account. -->
-    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
-
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
@@ -28,8 +27,7 @@
             android:authorities="@string/provider"
             android:exported="true"
             android:label="@string/content_provider_label"
-            android:syncable="true"
-            />
+            android:syncable="true" />
 
         <activity android:name=".Headlines">
             <intent-filter>
@@ -39,9 +37,9 @@
             </intent-filter>
         </activity>
 
+        <!-- Account service -->
+        <service android:name=".account.AccountService">
 
-        <!--Account service-->
-        <service android:name=".account.AccountService" >
             <!-- Required filter used by the system to launch our account service. -->
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
@@ -49,19 +47,23 @@
             <!-- This points to an XML file which describes our account service. -->
             <meta-data
                 android:name="android.accounts.AccountAuthenticator"
-                android:resource="@xml/authenticator"/>
-            </service>
-
-        <service android:name=".syncadapter.SyncService"
-            android:exported="true"
-            >
+                android:resource="@xml/authenticator" />
+        </service>
+        <service
+            android:name=".syncadapter.SyncService"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.content.SyncAdapter"/>
+                <action android:name="android.content.SyncAdapter" />
             </intent-filter>
+
             <meta-data
                 android:name="android.content.SyncAdapter"
-                android:resource="@xml/syncadapter"/>
+                android:resource="@xml/syncadapter" />
         </service>
+
+        <activity
+            android:name=".ListOfSource"
+            android:theme="@style/ListSourceTheme"></activity>
     </application>
 
 </manifest>

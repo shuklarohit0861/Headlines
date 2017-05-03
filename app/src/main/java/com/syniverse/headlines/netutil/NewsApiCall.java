@@ -11,33 +11,24 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class NewsApiCall {
-    public static final String BASE_URL_ARTICLE = "https://newsapi.org/v1/";
+    public static final String BASE_URL = "https://newsapi.org/v1/";
 
-    public static final String BASE_URL_CATEGORY = "https://newsapi.org/v1/";
+
     static Gson gson = new GsonBuilder()
             .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
             .create();
     private static Retrofit retrofitArticle = null;
     private static Retrofit retrofitCategory = null;
 
-    public static Retrofit getRetrofitArticle(){
+    public static Retrofit getRetrofit() {
         if(retrofitArticle == null){
             retrofitArticle = new Retrofit.Builder()
-                    .baseUrl(BASE_URL_ARTICLE)
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
 
         return retrofitArticle;
-    }
-    public static Retrofit getRetrofitCategory(){
-        if(retrofitCategory == null){
-            retrofitCategory = new Retrofit.Builder()
-                    .baseUrl(BASE_URL_CATEGORY)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
-        }
-        return retrofitCategory;
     }
 
 

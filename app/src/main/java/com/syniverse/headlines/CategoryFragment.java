@@ -44,7 +44,6 @@ public class CategoryFragment extends Fragment {
         category.add("science and nature");
         category.add("sport");
         category.add("technology");
-
     }
 
     @Override
@@ -63,7 +62,7 @@ public class CategoryFragment extends Fragment {
         {
             noOfColumn = 2;
         }
-        mAdapter = new AdapterCategory(category);
+        mAdapter = new AdapterCategory(category, getContext());
         recyclerViewCategory.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),noOfColumn);
         recyclerViewCategory.setHasFixedSize(true);

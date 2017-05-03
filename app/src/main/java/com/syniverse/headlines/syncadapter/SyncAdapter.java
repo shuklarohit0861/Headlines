@@ -46,7 +46,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient provider, SyncResult syncResult) {
 
         GetResponseInterfaceArticle getResponseInterfaceArticle = NewsApiCall
-                .getRetrofitArticle()
+                .getRetrofit()
                 .create(GetResponseInterfaceArticle.class);
 
         callArticles = getResponseInterfaceArticle.getNews("google-news","top",APIKEY);
@@ -84,13 +84,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
                 if(!news.equals(null))
                 {
+                    mContentResolver.delete(NewsContract.Article.CONTENT_URI, null, null);
                     mContentResolver.bulkInsert(NewsContract.Article.CONTENT_URI,news);
                 }
-
-
-
-
-
             }
 
             @Override
