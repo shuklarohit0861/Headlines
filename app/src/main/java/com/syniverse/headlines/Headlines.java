@@ -31,6 +31,7 @@ public class Headlines extends AppCompatActivity {
 
         setupViewPager(viewPagerHeadline);
 
+
         tabLayoutHeadline.setupWithViewPager(viewPagerHeadline);
         viewPagerHeadline.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

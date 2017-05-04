@@ -89,16 +89,12 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
 
         @Override
         public void onClick(View v) {
-
             int position = getAdapterPosition();
             cursor.moveToPosition(position);
             url = cursor.getColumnIndex(NewsContract.Article.COLUMN_URL);
             String urlString = cursor.getString(url);
-
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
             mContext.startActivity(intent);
-
-
         }
     }
 

@@ -31,7 +31,7 @@ public class NewsContract {
 
         public static final String COLUMN_ID = "_id";
 
-        public static final String COLUMN_AUTHOR = "author";
+        public static final String COLUMN_SOURCE = "source";
 
         public static final String COLUMN_TITLE = "title";
 

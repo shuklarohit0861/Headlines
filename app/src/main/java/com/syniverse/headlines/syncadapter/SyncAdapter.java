@@ -24,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by g801845 on 5/1/2017.
+ * Created by Rohit shukla on 5/1/2017.
  */
 
 public class SyncAdapter extends AbstractThreadedSyncAdapter {
@@ -44,6 +44,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     @Override
     public void onPerformSync(Account account, Bundle extras, String authority, ContentProviderClient provider, SyncResult syncResult) {
+
 
         GetResponseInterfaceArticle getResponseInterfaceArticle = NewsApiCall
                 .getRetrofit()
@@ -68,7 +69,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
                 for(ArticlesNews news : articlesNewses)
                 {
                     ContentValues values = new ContentValues();
-                    values.put(NewsContract.Article.COLUMN_AUTHOR,news.getAuthor());
+                    values.put(NewsContract.Article.COLUMN_SOURCE, getNews.getSource());
                     values.put(NewsContract.Article.COLUMN_TITLE,news.getTitle());
                     values.put(NewsContract.Article.COLUMN_DESCRIPTION,news.getDescription());
                     values.put(NewsContract.Article.COLUMN_URL,news.getUrl());

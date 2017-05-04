@@ -31,7 +31,8 @@ public class ListOfSource extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_list_of_source);
         ButterKnife.bind(this);
 
-        // categoryString = "entertainment";
+        //getting all the category form news api
+
 
         mAdapterSource = new AdaptorSource(getApplicationContext());
         recyclerViewSources.setHasFixedSize(true);
@@ -51,14 +52,8 @@ public class ListOfSource extends AppCompatActivity implements LoaderManager.Loa
                 categoryString = UtilsNetwork.category.get(bundleString);
                 getSupportLoaderManager().initLoader(4, null, this);
                 Log.i("bundle String", bundleString + categoryString);
-
             }
         }
-
-        // categoryString = "entertainment";
-        new UtilsNetwork().grabCategory(null, getApplicationContext());
-
-
         recyclerViewSources.setAdapter(mAdapterSource);
     }
 

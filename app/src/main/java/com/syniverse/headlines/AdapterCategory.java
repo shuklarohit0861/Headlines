@@ -38,6 +38,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHo
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_category,parent,false);
 
+
         return new ViewHolder(itemView);
     }
 
@@ -70,6 +71,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHo
             String categoryString = category.get(possition);
             Intent intent = new Intent(mContext, ListOfSource.class);
             intent.putExtra("LIST", categoryString);
+
             if (new UtilsNetwork().checkInternet(mContext)) {
                 mContext.startActivity(intent);
             } else {

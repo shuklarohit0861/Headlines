@@ -17,8 +17,8 @@ import android.support.annotation.Nullable;
 
 public class AccountService extends Service {
 
-    private static final String TAG = "AccountService";
     public static final String ACCOUNT_NAME = "Headline";
+    private static final String TAG = "AccountService";
     private Authenticator mAuthenticator;
 
 
@@ -44,6 +44,8 @@ public class AccountService extends Service {
 
         public Authenticator(Context context) {
             super(context);
+
+
         }
 
         @Override

@@ -12,4 +12,5 @@ public interface GetResponseInterfaceCategory {
 
     @GET("sources")
     Call<CategoryNews> getCategory(@Query("category") String category);
+
 }

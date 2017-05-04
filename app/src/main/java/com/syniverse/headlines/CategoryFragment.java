@@ -53,6 +53,7 @@ public class CategoryFragment extends Fragment {
         ButterKnife.bind(this,view);
         Configuration configuration = getResources().getConfiguration();
 
+
         int noOfColumn = 2;
         if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
         {
@@ -67,6 +68,7 @@ public class CategoryFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),noOfColumn);
         recyclerViewCategory.setHasFixedSize(true);
         recyclerViewCategory.setLayoutManager(layoutManager);
+
 
         recyclerViewCategory.setAdapter(mAdapter);
         return view;

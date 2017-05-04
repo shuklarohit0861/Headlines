@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 /**
- * Created by g801845 on 5/1/2017.
+ * Created by Rohit shukla on 5/1/2017.
  */
 
 public class SyncService extends Service {

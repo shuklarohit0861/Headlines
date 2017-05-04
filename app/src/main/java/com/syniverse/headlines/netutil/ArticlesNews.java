@@ -1,5 +1,8 @@
 package com.syniverse.headlines.netutil;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +10,18 @@ import com.google.gson.annotations.SerializedName;
  * Created by Rohit shukla on 4/29/2017.
  */
 
-public class ArticlesNews {
+public class ArticlesNews implements Parcelable {
+    public static final Creator<ArticlesNews> CREATOR = new Creator<ArticlesNews>() {
+        @Override
+        public ArticlesNews createFromParcel(Parcel in) {
+            return new ArticlesNews(in);
+        }
+
+        @Override
+        public ArticlesNews[] newArray(int size) {
+            return new ArticlesNews[size];
+        }
+    };
     @SerializedName("author")
     @Expose
     private String author;
@@ -26,6 +40,15 @@ public class ArticlesNews {
     @SerializedName("publishedAt")
     @Expose
     private String publishedAt;
+
+    protected ArticlesNews(Parcel in) {
+        author = in.readString();
+        title = in.readString();
+        description = in.readString();
+        url = in.readString();
+        urlToImage = in.readString();
+        publishedAt = in.readString();
+    }
 
     public String getAuthor() {
         return author;
@@ -73,5 +96,20 @@ public class ArticlesNews {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(author);
+        dest.writeString(title);
+        dest.writeString(description);
+        dest.writeString(url);
+        dest.writeString(urlToImage);
+        dest.writeString(publishedAt);
     }
 }

@@ -86,8 +86,8 @@ public class NewsFragment extends Fragment implements LoaderManager.LoaderCallba
                 NewsContract.Article.COLUMN_TITLE,
                 NewsContract.Article.COLUMN_URL,
                 NewsContract.Article.COLUMN_URL_TO_IMAGE},
-                null,
-                null,
+                NewsContract.Article.COLUMN_SOURCE + " = ? ",
+                new String[]{"google-news"},
                 null);
     }
 

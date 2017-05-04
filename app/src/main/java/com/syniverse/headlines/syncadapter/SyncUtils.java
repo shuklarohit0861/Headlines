@@ -9,19 +9,23 @@ import android.preference.PreferenceManager;
 
 import com.syniverse.headlines.account.AccountService;
 import com.syniverse.headlines.database.NewsContract;
+import com.syniverse.headlines.netutil.UtilsNetwork;
 
 /**
  * Created by Rohit shukla on 5/1/2017.
  */
 
 public class SyncUtils {
+    public static final String ACCOUNT_TYPE = "com.syniverse.headlines.account";
     private static final long SYNC_FREQUENCY = 60*60*3 ; // 3 hour (in seconds)
     private static final String CONTENT_AUTHORITY = NewsContract.AUTHORITY;
     private static final String PREF_SETUP_COMPLETE = "setup_complete";
-    public static final String ACCOUNT_TYPE = "com.syniverse.headlines.account";
 
     public static void CreateSyncAccount(Context context)
     {
+        //getting all the category form news api
+        new UtilsNetwork().getCategory(null, context);
+
         boolean newAccount = false;
         boolean setupCompleter = PreferenceManager
                 .getDefaultSharedPreferences(context).getBoolean(PREF_SETUP_COMPLETE,false);
