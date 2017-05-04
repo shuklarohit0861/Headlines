@@ -2,6 +2,7 @@ package com.syniverse.headlines;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.syniverse.headlines.netutil.UtilsNetwork;
 
 import java.util.ArrayList;
@@ -24,12 +26,14 @@ import butterknife.ButterKnife;
 public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHolder> {
 
     List<String> category =new ArrayList<>();
+    FirebaseAnalytics mFirebaseAnalytics;
     private Context mContext;
 
 
     public AdapterCategory(ArrayList<String> category, Context context) {
         this.category = category;
         mContext = context;
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
     }
 
     @Override
@@ -69,6 +73,12 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHo
         public void onClick(View v) {
             int possition = getAdapterPosition();
             String categoryString = category.get(possition);
+            //firebase analytics
+            Bundle bundle = new Bundle();
+            bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, categoryString);
+            bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Category selected");
+            mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
             Intent intent = new Intent(mContext, ListOfSource.class);
             intent.putExtra("LIST", categoryString);
 

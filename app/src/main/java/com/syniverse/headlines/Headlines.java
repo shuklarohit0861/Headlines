@@ -20,11 +20,13 @@ public class Headlines extends AppCompatActivity {
     NewsFragment newsFragment;
     CategoryFragment categoryFragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healines);
         ButterKnife.bind(this);
+
 
         Stetho.initializeWithDefaults(this);
         viewPagerHeadline.setOffscreenPageLimit(2);

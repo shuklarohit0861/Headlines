@@ -11,6 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -23,6 +27,9 @@ public class CategoryFragment extends Fragment {
 
     @BindView(R.id.recyclerViewCategory)
     RecyclerView recyclerViewCategory;
+
+    @BindView(R.id.adView)
+    AdView mAdView;
 
     ArrayList<String> category;
 
@@ -44,6 +51,8 @@ public class CategoryFragment extends Fragment {
         category.add("science and nature");
         category.add("sport");
         category.add("technology");
+
+
     }
 
     @Override
@@ -52,6 +61,12 @@ public class CategoryFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this,view);
         Configuration configuration = getResources().getConfiguration();
+
+        MobileAds.initialize(getContext(), "ca-app-pub-3940256099942544~3347511713");
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         int noOfColumn = 2;

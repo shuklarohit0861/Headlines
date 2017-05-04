@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "935773375883",
+    "firebase_url": "https://headlines-59674.firebaseio.com",
+    "project_id": "headlines-59674",
+    "storage_bucket": "headlines-59674.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935773375883:android:ed4a83c7573a26cd",
+        "android_client_info": {
+          "package_name": "com.syniverse.headlines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935773375883-6b0fn6rng8qpbh9vqj69372df36q1hih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmXkwuJBf4jzzmoXSiiEU6F_7HvSEJHlg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
