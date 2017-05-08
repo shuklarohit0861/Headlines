@@ -78,6 +78,8 @@ public class NewsWidgetRemoteViewService extends RemoteViewsService {
 
                 views.setTextViewText(R.id.textViewWidget, headline);
 
+                final Intent intent = new Intent();
+
                 return views;
 
             }

@@ -100,8 +100,10 @@ public class AdaptorSource extends RecyclerView.Adapter<AdaptorSource.ViewHolder
             intent.putExtra(NewsContract.Category.COLUMN_SOURCE_NAME, nameString);
             intent.putExtra(NewsContract.Category.COLUMN_SORT_BYS_AVAILABLE, sortbyString);
             intent.putExtra(NewsContract.Category.COLUMN_ARTICLE_ID, sourceString);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             if (new UtilsNetwork().checkInternet(mContext)) {
+
                 mContext.startActivity(intent);
             }
         }

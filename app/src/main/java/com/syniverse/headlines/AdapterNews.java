@@ -94,6 +94,7 @@ public class AdapterNews extends RecyclerView.Adapter<AdapterNews.ViewHolder> {
             url = cursor.getColumnIndex(NewsContract.Article.COLUMN_URL);
             String urlString = cursor.getString(url);
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);
         }
     }
