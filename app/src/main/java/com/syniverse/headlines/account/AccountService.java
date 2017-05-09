@@ -12,7 +12,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 /**
- * Created by g801845 on 5/1/2017.
+ * Created by rohit shukla on 5/1/2017.
  */
 
 public class AccountService extends Service {

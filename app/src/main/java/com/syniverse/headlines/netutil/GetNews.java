@@ -8,7 +8,7 @@ import java.util.List;
 
 
 /**
- * Created by g801845 on 4/29/2017.
+ * Created by rohit shukla on 4/29/2017.
  */
 
 public class GetNews {

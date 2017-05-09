@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 /**
- * Created by g801845 on 4/30/2017.
+ * Created by rohit shukla on 4/30/2017.
  */
 
 public interface GetResponseInterfaceCategory {
