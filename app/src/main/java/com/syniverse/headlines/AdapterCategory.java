@@ -85,7 +85,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.ViewHo
             if (new UtilsNetwork().checkInternet(mContext)) {
                 mContext.startActivity(intent);
             } else {
-                Toast.makeText(mContext, "Oooops no internet !!!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext, R.string.internet_msg, Toast.LENGTH_LONG).show();
             }
 
         }

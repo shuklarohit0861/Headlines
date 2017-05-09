@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
-def rootdir = "C:/projects/Headlines"
+
 
 android {
     signingConfigs {
         config {
             keyAlias 'Rohit'
             keyPassword 'password'
-            storeFile file("$rootdir/headlines.jks")
+            storeFile file("$rootDir/headlines.jks")
             storePassword 'password'
         }
     }
