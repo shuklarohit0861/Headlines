@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,18 +70,10 @@ public class CategoryFragment extends Fragment {
         mAdView.loadAd(adRequest);
 
 
-        int noOfColumn = 2;
-        if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
-        {
-            noOfColumn = 3;
-        }
-        else if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-        {
-            noOfColumn = 2;
-        }
+
         mAdapter = new AdapterCategory(category, getContext());
         recyclerViewCategory.setItemAnimator(new DefaultItemAnimator());
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(),noOfColumn);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), numberOfColumns());
         recyclerViewCategory.setHasFixedSize(true);
         recyclerViewCategory.setLayoutManager(layoutManager);
 
@@ -102,6 +95,16 @@ public class CategoryFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
 
+    }
+
+    private int numberOfColumns() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int widthDivider = 400;
+        int width = displayMetrics.widthPixels;
+        int nColumns = width / widthDivider;
+        if (nColumns < 2) return 2;
+        return nColumns;
     }
 
 

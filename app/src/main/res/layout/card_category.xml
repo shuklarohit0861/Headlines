@@ -11,7 +11,9 @@
         android:layout_width="@dimen/category_card_view_dime"
         android:layout_height="@dimen/category_card_view_dime"
         android:layout_gravity="center"
+        android:forceHasOverlappingRendering="true"
         app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
 
         <TextView
