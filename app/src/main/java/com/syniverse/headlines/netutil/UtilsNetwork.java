@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.syniverse.headlines.R;
 import com.syniverse.headlines.database.NewsContract;
 
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class UtilsNetwork {
                         List<SourceNews> sourceNewses = categoryNews.sources;
                         List<ContentValues> contentValuesList = new ArrayList<ContentValues>();
 
-                        Log.d("checking", "this is running");
+
 
                         for (SourceNews sourceNews : sourceNewses) {
                             ContentValues contentValues = new ContentValues();
@@ -105,7 +106,7 @@ public class UtilsNetwork {
                     @Override
                     public void onFailure(Call<CategoryNews> call, Throwable t) {
 
-                        Toast.makeText(context, " Ethan Hunt and his new team went rogue ", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, R.string.toast_msg, Toast.LENGTH_LONG).show();
                         getDefaultSharedPreferences(context)
                                 .edit()
                                 .putBoolean(PREF_LOADING_SOURCE_DONE, false)
@@ -114,7 +115,7 @@ public class UtilsNetwork {
                 });
             }
         } else {
-            Toast.makeText(context, "Ooops no internet !!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.internet_msg, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -128,7 +129,7 @@ public class UtilsNetwork {
                 NewsContract.Article.COLUMN_SOURCE + " = ? ",
                 new String[]{source},
                 null);
-        Log.d("CURSOR GETCOUNT", Integer.toString(cursor.getCount()));
+
         if (cursor != null && cursor.getCount() == 0) {
 
 
